@@ -1,3 +1,4 @@
 /vendor/
 /.devcontainer/
 .env
+composer.lock

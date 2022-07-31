@@ -35,21 +35,11 @@ class Client
     protected $extraGuzzleRequestsOptions;
 
     /**
-     * User Agent String to be used
-     *
-     * @var String
-     */
-    const UA = 'upbank-sdk-php/1';
-
-    /**
      * API Base Endpoint
      *
      * @var String
      */
     private $base = "https://api.up.com.au/api/v1";
-
-
-
 
     public function __construct(string $apiKey = "")
     {
@@ -66,7 +56,8 @@ class Client
         return $this;
     }
 
-    public function getAPIKey(): string {
+    public function getAPIKey(): string
+    {
         return $this->apiKey;
     }
 
@@ -84,6 +75,7 @@ class Client
         if (class_exists($targetResourceClass)) {
             // construct a resource object and pass in this client
             $resource = new $targetResourceClass($this);
+            
             return $resource;
         }
 
@@ -98,7 +90,7 @@ class Client
      * @param  String $uri
      * @return String
      */
-    public function getAPIEndpoint(String $uri) : String
+    public function getAPIEndpoint(String $uri): String
     {
         $endpoint = $this->getBase() . '/' . $uri;
 
@@ -110,9 +102,8 @@ class Client
      *
      * @return String
      */
-    public function getBase() : String
+    public function getBase(): String
     {
         return $this->base;
     }
-
 }

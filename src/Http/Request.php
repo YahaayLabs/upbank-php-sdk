@@ -6,7 +6,6 @@ use YahaayLabs\UpBank\Client;
 use Exception;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\GuzzleException;
-
 use YahaayLabs\UpBank\Exceptions\InvalidContentTypeException;
 use YahaayLabs\UpBank\Exceptions\InvalidRequestMethodException;
 use YahaayLabs\UpBank\Exceptions\InvalidResourceException;
@@ -51,18 +50,19 @@ class Request
     {
         $method = strtoupper(trim($method));
 
-        if (!in_array($method, ['GET','POST','PUT','PATCH','DELETE'])) {
+        if (!in_array($method, ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])) {
             throw new InvalidRequestMethodException();
         }
 
         $this->method = $method;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getMethod() : String
+    public function getMethod(): String
     {
         return $this->method;
     }
@@ -70,7 +70,7 @@ class Request
     /**
      * @return array
      */
-    public function getHeaders() : array
+    public function getHeaders(): array
     {
         return $this->headers;
     }
@@ -86,6 +86,7 @@ class Request
         if (isset($this->headers[$name])) {
             return $this->headers[$name];
         }
+
         return false;
     }
 
@@ -97,9 +98,10 @@ class Request
     public function clearHeaders()
     {
         $this->headers = [];
+
         return $this;
     }
-    
+
     /**
      *  Add headers to the request
      *
@@ -111,6 +113,7 @@ class Request
         foreach ($headers as $name => $value) {
             $this->addHeader($name, $value);
         }
+
         return $this;
     }
 
@@ -124,28 +127,7 @@ class Request
     public function addHeader($name, $value)
     {
         $this->headers[$name] = $value;
-        return $this;
-    }
 
-    /**
-     *  Set the default request headers
-     *
-     * @return $this
-     */
-    private function setDefaultHeaders()
-    {
-        $defaultHeaders = [
-            'Content-Type' => 'application/json',
-            'Accept' => 'application/json',
-            'User-Agent' =>  Client::UA, 
-            'X-STATS-SDK-LANGUAGE' => 'php',
-            'X-STATS-SDK-VERSION' => 'v1-dev'
-        ];
-        foreach ($defaultHeaders as $name => $value) {
-            if (!$this->getHeader($name)) {
-                $this->addHeader($name, $value);
-            }
-        }
         return $this;
     }
 
@@ -158,6 +140,7 @@ class Request
     public function setBody($body)
     {
         $this->body = $body;
+
         return $this;
     }
 
@@ -189,6 +172,7 @@ class Request
     public function setURL($url)
     {
         $this->url = trim($url);
+
         return $this;
     }
 
@@ -196,7 +180,7 @@ class Request
      * @return array
      * @throws InvalidContentTypeException
      */
-    public function getPayload() : array
+    public function getPayload(): array
     {
         $payload = [];
         $body = $this->getBody();
@@ -222,6 +206,7 @@ class Request
     public function setQueryStringParams($params)
     {
         $this->params = $params;
+        
         return $this;
     }
 
@@ -246,11 +231,11 @@ class Request
     public function getBodyKey()
     {
         switch ($this->getHeader('Content-Type')) {
-        case 'application/json':
-            return'json';
+            case 'application/json':
+                return 'json';
                 break;
-        default:
-            throw new InvalidContentTypeException;
+            default:
+                throw new InvalidContentTypeException;
         }
     }
 
@@ -291,6 +276,7 @@ class Request
         }
         $body = json_decode($result->getBody());
         $this->response->setRaw($body)->parse();
+        
         return $this;
     }
 }

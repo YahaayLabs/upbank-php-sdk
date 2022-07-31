@@ -90,31 +90,29 @@ class Resource
     }
 
     /**
-     *  Addsspecific request headers to an array to be passed to the request
+     *  Adds specific request headers to an array to be passed to the request
      *
-     * @param  array $headers
-     * @return array
      */
-    public function addRequestHeaders($headers)
+    public function addRequestHeaders(array $headers): array
     {
-
         $this->request->addHeaders($headers);
+ 
         return $headers;
     }
 
+    /**
+     * Getting all records of the resourse
+     */
     public function all()
     {
         return $this->call('get', false);
     }
 
+    /**
+     * Getting specicic row of a resource
+     */
     public function get(String $id)
     {
         return $this->call('get', false, $id);
     }
-
-    public function getRequest()
-    {
-        return $this->request;
-    }
-
 }
