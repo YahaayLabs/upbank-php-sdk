@@ -1,5 +1,5 @@
-# UPBANK PHP SDK (Unofficial)
-UpBank unofficial PHP SDK
+# UpBank PHP SDK (Unofficial)
+UpBank unofficial PHP SDK for the [UpBank API](https://developer.up.com.au/)
 
 <!-- BADGES_START -->
 [![Latest Version][badge-release]][packagist]
@@ -63,7 +63,6 @@ $accounts = $client->tags->all()->data();
 
 //Get All Transactions
 $accounts = $client->transactions->all()->data();
-
 
 //Getting specific record
 $transactionID = "[TRANSACTION ID]";
