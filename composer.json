@@ -1,7 +1,7 @@
 {
     "name": "yahaay-labs/upbank-php-sdk",
     "description": "Unofficial PHP SDK for UpBank API",
-    "version": "1.0.20220729",
+    "version": "1.0.31072022",
     "type": "library",
     "keywords": [
         "UPBank",
