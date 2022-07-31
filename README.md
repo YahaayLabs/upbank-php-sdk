@@ -49,4 +49,8 @@ composer run test
 - [Gerald Villacarlos](https://github.com/eLBirador)
 - [All Contributors](../../contributors)
 
+## Contributing
+Contributions are more than welcome! See [CONTRIBUTING.md](/CONTRIBUTING.md) for more info.
+
 ## LICENSE
+MIT license. Please see [LICENSE.md](LICENSE.md) for more info.
