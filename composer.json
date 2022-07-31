@@ -1,0 +1,45 @@
+{
+    "name": "yahaay-labs/upbank-php-sdk",
+    "description": "Unofficial PHP SDK for UpBank API",
+    "version": "1.0.20220729",
+    "type": "library",
+    "keywords": [
+        "UPBank",
+        "API",
+        "SDK"
+    ],
+    "homepage": "https://github.com/YahaayLabs/upbank-php-sdk",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gerald Villacarlos",
+            "email": "gerald@yahaay.com",
+            "homepage": "https://github.com/eLBirador"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4 <8.2",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.4",
+        "nesbot/carbon": "^2.60"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.5",
+        "vlucas/phpdotenv": "5.4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "YahaayLabs\\UpBank\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=coverage",
+        "lint": "phpcs --standard=phpcs-ruleset.xml src/",
+        "lint-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
+        "analyze": "phan --allow-polyfill-parser"
+    }
+}
